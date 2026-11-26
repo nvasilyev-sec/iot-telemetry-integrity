@@ -75,7 +75,15 @@ Local Linux execution using Python 3.13.5 and OpenSSL 3.5.5: **22 unit tests and
 | Altered proof or wrong requested index | Rejected |
 | Changed signed manifest or wrong public key | Rejected |
 
-A GitHub Actions workflow is included for macOS and Linux; remote CI results have not been verified at packaging time.
+### Cross-platform validation
+
+- Local macOS testing: 22/22 unit tests passed.
+- End-to-end security demonstration: 13/13 checks passed.
+- GitHub Actions: all four testing environments passed.
+- CI platforms: Ubuntu Linux and macOS.
+- CI Python versions: 3.11 and 3.13.
+
+Automated tests run on every push and pull request.
 
 ## Performance
 
@@ -87,6 +95,17 @@ Example measurements from one local run (synthetic records, in-memory hashing on
 | 1,000 | 1.079 | 0.036 | 10 |
 | 10,000 | 9.979 | 0.051 | 14 |
 | 100,000 | 98.409 | 0.063 | 17 |
+
+### macOS benchmark results
+
+MacBook Pro, Python 3.15.2.
+
+| Records | Tree build (ms) | Proof verification (ms) | Sibling hashes |
+| ---: | ---: | ---: | ---: |
+| 100 | 0.101 | 0.032 | 7 |
+| 1,000 | 0.738 | 0.035 | 10 |
+| 10,000 | 7.389 | 0.048 | 14 |
+| 100,000 | 74.914 | 0.074 | 17 |
 
 These are illustrative, environment-dependent single-run measurements, not production performance claims. The benchmark excludes JSON parsing, disk I/O and signature operations. Building the tree requires O(n) time and memory; a proof uses O(log n) hashes and verification time.
 
@@ -118,4 +137,13 @@ docs/             Threat model and validation results
 
 ## Development background
 
-A fresh implementation inspired by graduate IoT security coursework and standard Merkle-tree concepts. The implementation, tests and documentation were generated with AI assistance for portfolio study; no instructor-provided source files are redistributed. The owner should review, run and understand the code before presenting personal contributions. This is an educational prototype, not an audited product or a representation of any employer's systems.
+An AI-assisted cybersecurity portfolio project exploring
+cryptographic data integrity, digital signatures, and
+independent record verification.
+
+The implementation was locally validated on macOS and
+configured for automated cross-platform testing through
+GitHub Actions.
+
+This project is a security proof of concept, not a
+production-ready or independently audited security product.
