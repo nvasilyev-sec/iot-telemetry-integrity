@@ -1,5 +1,9 @@
 # IoT Telemetry Integrity & Tampering Detection
 
+[![Integrity tests](https://github.com/nvasilyev-sec/iot-telemetry-integrity/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/nvasilyev-sec/iot-telemetry-integrity/actions/workflows/tests.yml)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+
+
 **Python · SHA-256 · Merkle trees · RSA digital signatures · Security automation**
 
 A command-line security proof of concept for detecting unauthorized changes to ordered JSON Lines (JSONL) datasets and independently verifying individual records against a signed integrity manifest. Designed for synthetic IoT telemetry, audit logs, and transaction-log examples.
